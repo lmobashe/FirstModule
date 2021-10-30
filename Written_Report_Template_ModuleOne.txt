@@ -1,0 +1,29 @@
+# Kickstarting with Excel
+
+## Overview of Project
+
+### Purpose:
+
+We want to know how successful different campaigns were, looking at launch dates and funding goals. This project looks at data from Kickstarter to predic the best time of year and funding goals to set to successfuly fund Theater/play projects.   
+
+## Analysis and Challenges
+
+A Kickstarter where the money pledged was equal to or higher than the goal funding amount is considered successful; conversly, a campaign where the money pledged was less than the goal amount is considered failed.
+
+### Analysis of Outcomes Based on Launch Date
+
+May and June were the highest performing months for theater kickstarters with 67% and 65%, repsectively, successful campaigns. January through July show a success rate of over 50% each month while August through December having a success rate of less than 50%. December is the least succesful month for theather Kickstarters with only an 18% success rate.
+
+### Analysis of Outcomes Based on Goals
+
+### Challenges and Difficulties Encountered
+
+## Results
+
+- What are two conclusions you can draw about the Outcomes based on Launch Date?
+
+- What can you conclude about the Outcomes based on Goals?
+
+- What are some limitations of this dataset?
+
+- What are some other possible tables and/or graphs that we could create?
