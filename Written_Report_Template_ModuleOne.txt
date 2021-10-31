@@ -4,23 +4,46 @@
 
 ### Purpose:
 
-We want to know how successful different campaigns were, looking at launch dates and funding goals. This project looks at data from Kickstarter to predic the best time of year and funding goals to set to successfuly fund Theater/play projects.   
+Kickstarter campaigns can be a good way to raise money for a project. We want to find out how to run a successful kickstarter campaign specifically for funding the production of a play. 
+There are many variables that can contribute to the success of a Kickstarter campaign we looked at the dates campaigns were launched and the funding goal amounts. 
 
 ## Analysis and Challenges
 
-A Kickstarter where the money pledged was equal to or higher than the goal funding amount is considered successful; conversly, a campaign where the money pledged was less than the goal amount is considered failed.
+The Kickstarter data we analyzed showed campaign information from 20 different countries, our analysis was not country specific so all country data was analyzed together. 
+A Kickstarter where the money pledged was equal to or higher than the goal funding amount is considered "successful"; conversly, a campaign where the money pledged was less 
+than the goal amount is considered "failed". Campaigns that are actively collecting donations are considered "live" and campaigns that were started but canceled before their
+Conditional formatting was applied to the outcomes column in our data set for visual emphasis: "successful" was colored green, "failed" was colored red, "canceled" was colored
+yellow, and "live" was colored blue. For our analysis looking at the success of campaigns based on date and funding goals "live" campains were not included; since they have 
+not concluded these campaigns do not offer any insight into the traits of successful campaigns. 
 
 ### Analysis of Outcomes Based on Launch Date
 
-May and June were the highest performing months for theater kickstarters with 67% and 65%, repsectively, successful campaigns. January through July show a success rate of over 50% each month while August through December having a success rate of less than 50%. December is the least succesful month for theather Kickstarters with only an 18% success rate.
+The Kickstarter data included the campaigns' start dates and end dates as a Unix timestamp. To analyse the the success of theater campaigns based on launch date, these unix timestamps needed to be 
+converted into a readable format using the following formula:
+
+````
+```
+	=(((J4/60)/60)/24+DATE(1970,1,1)
+		-J4 refers to the column holding the unix time stamp for the campaign creation date
+```
+````
+
+After converting the unix timestamp into readable format the data was inserted into a pivot table filtered by parent category, theater. 
+
 
 ### Analysis of Outcomes Based on Goals
 
 ### Challenges and Difficulties Encountered
 
+For this analysis outliers were not identified, this could be an additional parameter to explore to verify outliers are not skewing the results.
+
 ## Results
 
 - What are two conclusions you can draw about the Outcomes based on Launch Date?
+
+May and June were the highest performing months for theater kickstarters with 67% and 65%, repsectively, successful campaigns. January through July
+ show a success rate of over 50% each month while August through December having a success rate of less than 50%. December is the least succesful 
+month for theather Kickstarters with only an 18% success rate.
 
 - What can you conclude about the Outcomes based on Goals?
 
