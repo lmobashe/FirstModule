@@ -18,8 +18,8 @@ not concluded these campaigns do not offer any insight into the traits of succes
 
 ### Analysis of Outcomes Based on Launch Date
 
-The Kickstarter data included the campaigns' start dates and end dates as a Unix timestamp. To analyse the the success of theater campaigns based on launch date, these unix timestamps needed to be 
-converted into a readable format using the following formula:
+The Kickstarter data included the campaigns' creation dates and end dates as a Unix timestamp. To analyse the the success of theater campaigns based on launch date, these unix
+ timestamps needed to be converted into a readable format using the following formula:
 
 ````
 ```
@@ -28,14 +28,42 @@ converted into a readable format using the following formula:
 ```
 ````
 
-After converting the unix timestamp into readable format the data was inserted into a pivot table filtered by parent category, theater. 
+After converting the unix timestamp into readable format the data was inserted into a pivot table filtered by parent category, theater. The table is shows a count campaigns by 
+outcome--"successful," "failed," "canceled," and total campaigns--against launch date by month. I included the percetage of campaigns that were successful and failed by launch month.
+
+![Theater_Outcomes_vs_Launch_Pivot_Table](https://github.com/lmobashe/FirstModule/blob/main/Resources/Theater_Outcomes_vs_Launch_Pivot_Table.png)
+
+The pivot table was visualized as a line graph of campaigns over time, campaign outcome on the y-axis and launch date by month on the x-axis. 
+
+![Theater_Outcomes_vs_Launch](https://github.com/lmobashe/FirstModule/blob/main/Resources/Theater_Outcomes_vs_Launch.png)
 
 
 ### Analysis of Outcomes Based on Goals
 
+To analyse the campaign outcomes based on goal funding amounts we first identified goal ranges to group the Kickstarter campaigns for our analysis; the goal ranges were increments of 
+$5,000. We then counted the number of campaigns for each funding range for each outcome using the following formula:
+
+````
+```
+	=COUNTIFS(Kickstarter!$D:$D,">=*1000*",Kickstarter!$D:$D,"<=*4999*", Kickstarter!$F:$F,"*Outcome*", Kickstarter!$R:$R, "plays")
+		-where 1000 refers to the lowest amount per goal range
+		-where 4999 refers to the highest amount per goal range
+		-Outcome is replaced by "successful", "failed", and "canceled" for the analysis of each outcome group by fund range
+		-$D:$D indicates the column that holds the funding goal data
+		-$F:$F indicates the column that holds the campaign outcome data
+		-$R:R$ indicates the column that holds the campaign subcategory
+```
+````
+
+
+
+![Outcomes_vs_Goals](https://github.com/lmobashe/FirstModule/blob/main/Resources/Outcomes_vs_Goals.png)
+
 ### Challenges and Difficulties Encountered
 
-For this analysis outliers were not identified, this could be an additional parameter to explore to verify outliers are not skewing the results.
+For this analysis outliers were not identified, this could be an additional parameter to explore to verify outliers are not skewing the results. Each campaign included a category/subcategory
+ entry; to look at the data by parent category (e.g. Theater) and subcategory (e.g. plays) separately the data column needs to be segregated into separate data columns using the . 
+To separate the parent category from the subcategory we used the "convert text to columns wizard" and "Delimited" process.
 
 ## Results
 
@@ -44,6 +72,8 @@ For this analysis outliers were not identified, this could be an additional para
 May and June were the highest performing months for theater kickstarters with 67% and 65%, repsectively, successful campaigns. January through July
  show a success rate of over 50% each month while August through December having a success rate of less than 50%. December is the least succesful 
 month for theather Kickstarters with only an 18% success rate.
+
+
 
 - What can you conclude about the Outcomes based on Goals?
 
